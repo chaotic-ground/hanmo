@@ -4,7 +4,6 @@
 [![docs.rs](https://img.shields.io/docsrs/hanmo)](https://docs.rs/hanmo)
 
 한글 음절 조합/분해와 자모 변환을 위한 작은 **순수 유니코드** 라이브러리.
-자모를 **모아** 음절을 만든다(모아쓰기)는 데서 이름을 땄습니다.
 
 A small, dependency-free, pure-Unicode Rust library for **Hangul (한글) syllable
 composition / decomposition** and jamo conversion. It bridges the three layers
