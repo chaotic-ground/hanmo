@@ -1,0 +1,30 @@
+name: release
+
+# crates.io Trusted Publishing (GitHub Actions OIDC) — 장기 API 토큰 없이 게시.
+# 사전 설정: crates.io 에 GitHub 로그인 후, 이 repo(chaotic-ground/hanmo)와
+# 워크플로 파일명(release.yml)을 Trusted Publisher 로 등록해야 한다.
+# 트리거: 수동 실행(workflow_dispatch) 또는 v* 태그 푸시.
+
+on:
+  workflow_dispatch:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      id-token: write # OIDC 토큰 발급(필수)
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo test --all-features
+      - run: cargo publish --dry-run
+      - name: crates.io 인증 토큰(OIDC) 교환
+        uses: rust-lang/crates-io-auth-action@v1
+        id: auth
+      - run: cargo publish
+        env:
+          CARGO_REGISTRY_TOKEN: ${{ steps.auth.outputs.token }}
