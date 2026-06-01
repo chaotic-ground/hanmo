@@ -131,7 +131,7 @@ mod tests {
 
     #[test]
     fn roundtrip_decompose() {
-        for ch in ['가', '각', '한', '뷁', '힣', '꿈', '워', '의'] {
+        for ch in ['가', '각', '한', '됬', '힣', '꿈', '워', '의'] {
             let (c, j, t) = decompose(ch).unwrap();
             assert_eq!(compose(c, j, t), Some(ch), "roundtrip {ch}");
         }
