@@ -1,0 +1,15 @@
+[package]
+name = "hanmo"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.70"
+description = "Hangul syllable composition/decomposition and jamo conversion: conjoining jamo (U+1100) <-> precomposed syllables (U+AC00) <-> compatibility jamo (U+3130), plus cho/jong consonant conversion."
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/chaotic-ground/hanmo"
+homepage = "https://github.com/chaotic-ground/hanmo"
+documentation = "https://docs.rs/hanmo"
+readme = "README.md"
+keywords = ["hangul", "korean", "jamo", "unicode", "ime"]
+categories = ["text-processing", "internationalization"]
+
+[dependencies]
